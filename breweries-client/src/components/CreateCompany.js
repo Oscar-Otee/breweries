@@ -1,24 +1,24 @@
 import React from 'react'
 
 
-function CreateSalesCompany({handleNewSalesCompany}){
-    function handleAddSalesCompany(){
-        const salesCompany = {
-            salesCompany_name: document.querySelector("#root > div > div > div:nth-child(2) > div:nth-child(1) > label > input[type=text]").value
+function CreateCompany({handleNewCompany}){
+    function handleAddCompany(){
+        const company = {
+            company_name: document.querySelector("#root > div > div > div:nth-child(2) > div:nth-child(1) > label > input[type=text]").value
         }
-        console.log(salesCompany)
+        console.log(company)
         document.querySelector("#root > div > div > div:nth-child(2) > div:nth-child(1) > label > input[type=text]").value = ''
         
-        fetch("http://localhost:9292/sales_companies",{
+        fetch("http://localhost:9292/companies",{
             method: "POST",
             headers:{
                 "content-type" : "application/json",
                 "accept" : "application/json"
             },
-            body: JSON.stringify(salesCompany)
+            body: JSON.stringify(company)
         })
         .then(resp => resp.json())
-        .then(resp => handleNewSalesCompany(resp))
+        .then(resp => handleNewCompany(resp))
         
     }
     return(
@@ -27,8 +27,8 @@ function CreateSalesCompany({handleNewSalesCompany}){
             <label> Sales Company Name:
                 <input type="text" placeholder="Sales Company Name"></input>
             </label>
-            <button onClick={handleAddSalesCompany}>Add</button>
+            <button onClick={handleAddCompany}>Add</button>
         </div>
     )
 }
-export default CreateSalesCompany
+export default CreateCompany

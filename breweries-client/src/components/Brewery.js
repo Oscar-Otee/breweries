@@ -14,21 +14,13 @@ function Brewery({allCompanies}){
     },[])
 
     function deleteBrewery({id}){
-        setLaunches(breweries.filter(brewery => brewery.id !== id))
+        setBreweries(breweries.filter(brewery => brewery.id !== id))
         fetch(`http://localhost:9292/breweries/${id}`,{
             method: 'DELETE'
         })
             .then(resp => resp.json())
             .then()
     }
-
-    // function defineSuccess(launchSuccess){
-    //  if(launchSuccess === true){
-    //        return 'Lift off was successful'
-    //     }else if(launchSuccess === false){
-    //        return 'Rocket failed to lift off'
-    //     }
-    // }
 
     function addBrewery(newBrewery){ 
         setBreweries([...breweries, newBrewery])

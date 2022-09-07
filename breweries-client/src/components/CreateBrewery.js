@@ -17,9 +17,7 @@ function CreateBrewery({addBrewery, allCompanies}){
             longitude: e.target[7].value,
             latitude: e.target[8].value,
             phone : e.target[9].value,
-            state: e.target[10].value,
-            postal_code: e.target[11].value,
-            companyName: e.target[12].value
+            companyName: e.target[10].value
         }
         e.target.reset()
     fetch("http://localhost:9292/breweries",{
@@ -31,7 +29,7 @@ function CreateBrewery({addBrewery, allCompanies}){
         body: JSON.stringify(newBrewery)
     })
     .then(resp => resp.json())
-    .then(resp => addLaunch(resp))
+    .then(resp => addBrewery(resp))
     }
 
 
@@ -39,34 +37,34 @@ function CreateBrewery({addBrewery, allCompanies}){
         <div>
             <h1>Create A Brewery</h1>
           <form onSubmit={handleSubmit}>
-            <label>Brewery Name:</label>
+            <label> Brewery Name: </label>
                 <input type='text' name="breweryName" placeholder='Brewery Name'></input>
-            <label>Brewery Type:</label>
+            <label> Brewery Type: </label>
                 <input type='text' name="breweryType" placeholder='Brewery Type'></input>
-            <label>Street:</label>
+            <label> Street: </label>
                 <input type='text' name='street' placeholder="Street"></input>
-            <label>City:</label>
-                <input type='text' name="city" placeholder='City'></input>
-            <label>State:</label>
+            <label> City: </label>
+                <input type='text' name="city" placeholder='City'></input><br></br><br></br>
+            <label> State: </label>
                 <input type='text' name="state" placeholder='State'></input>
-            <label>Postal Code:</label>
+            <label> Postal Code: </label>
                 <input type='text' name='postalCode' placeholder="Postal Code"></input>
-            <label>Country:</label>
+            <label> Country: </label>
                 <input type='text' name="country" placeholder='Country'></input>
-            <label>Longitude:</label>
-                <input type='text' name="longitude" placeholder='Longitude'></input>
-            <label>Latitude:</label>
+            <label> Longitude: </label>
+                <input type='text' name="longitude" placeholder='Longitude'></input><br></br><br></br>
+            <label> Latitude: </label>
                 <input type='text' name='latitude' placeholder="Latitude"></input>
-            <label>Phone:</label>
+            <label> Phone: </label>
                 <input type='text' name="phone" placeholder='Phone'></input>
-            <label>Company Name:</label>
+            <label> Company Name: </label>
                 <select>
                     {allCompanies.map((company, index) => <option key={index}>{company.company_name}</option>)}   
                 </select>    
-                <input type='submit'></input>
+            <input type='submit'></input>
           </form>
         </div>
     )
 }
 
-export default CreateLaunch
+export default CreateBrewery

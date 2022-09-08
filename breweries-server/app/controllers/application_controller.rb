@@ -2,41 +2,41 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   
-def include_company(object)
+def include_retail(object)
   object.to_json(
   include: {
-    company: {
+    retail: {
       only: [
-        :company_name
+        :retail_name
       ]
     }
   }
 )
 end
 
-def find_company_id(params)
-  company = Company.find_by(company_name: params[:companyName])
-  company.id
+def find_retail_id(params)
+  retail = Retail.find_by(retail_name: params[:retailName])
+  retail.id
 end
 
-  get '/companies' do
-    companies = Company.all
-    companies.to_json
+  get '/retails' do
+    retails = Retail.all
+    retails.to_json
   end
 
-  post '/companies' do
-    company = Company.create(params)
-    company.to_json
+  post '/retails' do
+    retail = Retail.create(params)
+    retail.to_json
   end
-  delete '/companies/:id' do
-    company = Company.find(params[:id])
-    company.destroy
-    company.to_json
+  delete '/retails/:id' do
+    retail = Retail.find(params[:id])
+    retail.destroy
+    retail.to_json
  
   end
 
   get "/breweries" do
-    include_company(Brewery.all)
+    include_retail(Brewery.all)
   end
 
   post '/breweries' do 
@@ -51,9 +51,9 @@ end
       longitude: params[:longitude], 
       latitude: params[:latitude], 
       phone: params[:phone], 
-      company_id: find_company_id(params)
+      retail_id: find_retail_id(params)
       )
-      include_company(breweries)
+      include_retail(breweries)
   end
 
   patch '/breweries/:id' do
@@ -69,7 +69,6 @@ end
       longitude: params[:longitude], 
       latitude: params[:latitude], 
       phone: params[:phone], 
-      company_id: find_company_id(params)
     )
     brewery.to_json
   end

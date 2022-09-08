@@ -6,7 +6,7 @@ function EditBrewery({ id, body, onUpdateBrewery }) {
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:4000/breweries/${id}`, {
+    fetch(`http://localhost:9292/breweries/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

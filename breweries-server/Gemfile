@@ -20,6 +20,8 @@ gem 'require_all', '~> 3.0'
 
 gem 'rest-client', '~> 2.1'
 
+gem 'faker', '~> 2.23'
+
 group :development do
   gem 'pry', '~> 0.14.1'
   gem "rerun"

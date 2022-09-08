@@ -24,6 +24,8 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     eventmachine (1.2.7)
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     http-accept (1.7.0)
     http-cookie (1.0.5)
@@ -106,6 +108,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 7.0, >= 7.0.3.1)
   database_cleaner (~> 2.0, >= 2.0.1)
+  faker (~> 2.23)
   pry (~> 0.14.1)
   rack-contrib (~> 2.3)
   rack-cors (~> 1.1, >= 1.1.1)

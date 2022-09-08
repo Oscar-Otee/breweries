@@ -11,7 +11,7 @@ class CreateBreweries < ActiveRecord::Migration[7.0]
       t.string :longitude
       t.string :latitude
       t.string :phone
-      t.string :company_id
+      t.string :retail_id
       t.timestamps
     end
   end

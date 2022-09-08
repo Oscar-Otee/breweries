@@ -1,3 +1,3 @@
 class Brewery < ActiveRecord::Base
-    belongs_to :company
+    belongs_to :retail
 end

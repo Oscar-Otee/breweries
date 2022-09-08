@@ -1,19 +1,19 @@
-import Companies from "./Company"
+import Retails from "./Retail"
 import React from 'react'
 import Brewery from "./Brewery"
 import { useState, useEffect } from "react"
 
 function Home(){
 
-    const [allCompanies, setCompanies] = useState([])
+    const [allRetails, setRetails] = useState([])
 
-    function handleNewCompany(company){
-        setCompanies([...allCompanies, company])
+    function handleNewRetail(retail){
+        setRetails([...allRetails, retail])
     }
-    function deleteCompany({id}){
-        setCompanies(allCompanies.filter(brewery => brewery.id !== id))
+    function deleteRetail({id}){
+        setRetails(allRetails.filter(brewery => brewery.id !== id))
 
-        fetch(`http://localhost:9292/companies/${id}`,{
+        fetch(`http://localhost:9292/retails/${id}`,{
             method: 'DELETE'
         })
             .then(resp => resp.json())
@@ -21,17 +21,17 @@ function Home(){
     }
 
     useEffect(()=>{
-        fetch("http://localhost:9292/companies")
+        fetch("http://localhost:9292/retails")
         .then(resp => resp.json())
-        .then(companies => setCompanies(companies))
+        .then(retails => setRetails(retails))
     },[])
 
 
     return(
         <div>
           <h1>Universe Brewery Compilation</h1>
-          <Companies handleNewCompany={handleNewCompany} deleteCompany={deleteCompany} allCompanies={allCompanies}/>
-          <Brewery allCompanies={allCompanies}/>
+          <Retails handleNewRetail={handleNewRetail} deleteRetail={deleteRetail} allRetails={allRetails}/>
+          <Brewery allRetails={allRetails}/>
         </div>
     )
 }

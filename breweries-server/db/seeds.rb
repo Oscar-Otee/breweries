@@ -1,6 +1,12 @@
 puts "🌱 Seeding..."
 
-Company.create(company_name: 'Universe')
+Retail.create(retail_name: 'Universe')
+# 20.times do
+#     # create a retail with random data
+#     Retail.create(
+#       retail_name: Faker::Retail.retail_name
+#     )
+# end
 response = RestClient.get 'https://api.openbrewerydb.org/breweries'
 breweries = JSON.parse(response)
 breweries.each do |brewery|
@@ -15,8 +21,10 @@ country: brewery['country'],
 longitude: brewery['longitude'],
 latitude: brewery['latitude'],
 phone: brewery['phone'],
-company_id: 1,
+retail_id: 1,
 )
 end
+
+
 
 puts "✅ Done seeding!"

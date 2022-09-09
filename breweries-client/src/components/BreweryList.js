@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import CreateBrewery from './CreateBrewery.js'
 import EditBrewery from './EditBrewery.js'
 
-function BreweryList({allRetails}){
+function BreweryList({allRetails, allWholesales}){
     
     const [breweries, setBreweries] = useState([])
 
@@ -30,7 +30,7 @@ function BreweryList({allRetails}){
 
 return(
     <div>
-       <CreateBrewery addBrewery={addBrewery} allRetails={allRetails}/>
+       <CreateBrewery addBrewery={addBrewery} allRetails={allRetails} allWholesales={allWholesales}/>
        <h1>Details of Breweries</h1>
        {breweries.map((brewery, index)=>
          <div key={index}>
@@ -45,6 +45,7 @@ return(
             <p><strong>Latitude: </strong> {brewery.latitude}</p>
             <p><strong>Phone: </strong> {brewery.phone}</p>
             <p><strong>Retail: </strong>{brewery.retail.retail_name}</p>
+            <p><strong>Wholesale: </strong>{brewery.wholesale.wholesale_name}</p>
             <button onClick={()=>deleteBrewery(brewery)}>Delete Brewery</button>
             <hr></hr>
          </div> 

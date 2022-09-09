@@ -71,7 +71,6 @@ end
     include_retail(Brewery.all)
   end
 
-
   post '/breweries' do 
     breweries = Brewery.create(
       name: params[:name], 
@@ -104,7 +103,6 @@ end
       phone: params[:phone]
       )
   end
-
 
   delete '/breweries/:id' do
     breweries = Brewery.find(params[:id])

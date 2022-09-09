@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function CreateBrewery({addBrewery, allRetails}){
 
     function handleSubmit (e){

@@ -1,4 +1,4 @@
 class Brewery < ActiveRecord::Base
     belongs_to :retail
-    belongs_to :brewery
+    belongs_to :wholesale
 end

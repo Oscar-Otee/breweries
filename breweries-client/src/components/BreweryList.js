@@ -31,6 +31,7 @@ function BreweryList({allRetails}){
 return(
     <div>
        <CreateBrewery addBrewery={addBrewery} allRetails={allRetails}/>
+       <h1>Details of Breweries</h1>
        {breweries.map((brewery, index)=>
          <div key={index}>
             <p><strong>Name: </strong>{brewery.name}</p>

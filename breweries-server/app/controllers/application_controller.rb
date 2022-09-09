@@ -19,6 +19,23 @@ def find_retail_id(params)
   retail.id
 end
 
+def include_wholesale(object)
+  object.to_json(
+  include: {
+    wholesale: {
+      only: [
+        :wholesale_name
+      ]
+    }
+  }
+)
+end
+
+def find_wholesale_id(params)
+  wholesale = Wholesale.find_by(wholesale_name: params[:wholesaleName])
+  wholesale.id
+end
+
   get '/retails' do
     retails = Retail.all
     retails.to_json
@@ -35,25 +52,21 @@ end
  
   end
 
-
-  def include_wholesale(object)
-    object.to_json(
-    include: {
-      wholesale: {
-        only: [
-          :wholesale_name
-        ]
-      }
-    }
-  )
-  end
-  
-  def find_wholesale_id(params)
-    wholesale = Wholesale.find_by(wholesale_name: params[:wholesaleName])
-    retail.id
+  get '/wholesales' do
+    wholesales = Wholesale.all
+    wholesales.to_json
   end
 
-
+  post '/wholesales' do
+    wholesale = Wholesale.create(params)
+    wholesale.to_json
+  end
+  delete '/wholesales/:id' do
+    wholesale = Wholesale.find(params[:id])
+    wholesale.destroy
+    wholesale.to_json
+ 
+  end
 
   get "/breweries" do
     include_retail(Brewery.all)
@@ -74,23 +87,6 @@ end
       retail_id: find_retail_id(params)
       )
       include_retail(breweries)
-  end
-
-  patch '/breweries/:id' do
-    brewery = Brewery.find(params[:id])
-    brewery.update(
-      name: params[:name], 
-      brewery_type: params[:brewery_type], 
-      street: params[:street], 
-      city: params[:city], 
-      state: params[:state], 
-      postal_code: params[:postal_code], 
-      country: params[:country], 
-      longitude: params[:longitude], 
-      latitude: params[:latitude], 
-      phone: params[:phone], 
-    )
-    brewery.to_json
   end
 
   patch '/retails/:id' do

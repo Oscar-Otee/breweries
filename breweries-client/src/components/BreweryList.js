@@ -26,7 +26,6 @@ function BreweryList({allRetails, allWholesales}){
         setBreweries([...breweries, newBrewery])
     }
 
-
 return(
     <div>
        <CreateBrewery addBrewery={addBrewery} allRetails={allRetails}/>

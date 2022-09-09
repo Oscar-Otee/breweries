@@ -19,8 +19,9 @@ function CreateRetail({handleNewRetail}){
         })
         .then(resp => resp.json())
         .then(resp => handleNewRetail(resp))
-        
     }
+
+    
     return(
         <div>
             <h1> Create A Retail</h1>

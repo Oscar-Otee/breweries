@@ -19,12 +19,6 @@ def find_retail_id(params)
   retail.id
 end
 
-
-def find_wholesale_id(params)
-  wholesale = Wholesale.find_by(wholesale_name: params[:wholesaleName])
-  wholesale.id
-end
-
   get '/retails' do
     retails = Retail.all
     retails.to_json

@@ -57,10 +57,10 @@ function CreateBrewery({addBrewery, allRetails}){
                 <input type='text' name='latitude' placeholder="Latitude"></input>
             <label> Phone: </label>
                 <input type='text' name="phone" placeholder='Phone'></input>
-            {/* <label> Retail Name: </label>
+            <label> Retail Name: </label>
                 <select>
                     {allRetails.map((retail, index) => <option key={index}>{retail.retail_name}</option>)}   
-                </select>     */}
+                </select>    
             <input type='submit'></input>
           </form>
         </div>

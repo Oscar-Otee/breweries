@@ -3,7 +3,7 @@ import React from 'react'
 
 import CreateRetail from "./CreateRetail";
 
-function Retails({ handleNewRetail, deleteRetail, allRetails}){
+function RetailsList({ handleNewRetail, deleteRetail, allRetails}){
 
     return(
         <div>
@@ -17,4 +17,4 @@ function Retails({ handleNewRetail, deleteRetail, allRetails}){
         </div>
     )
 }
-export default Retails
+export default RetailsList

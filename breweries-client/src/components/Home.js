@@ -1,6 +1,6 @@
-import Retails from "./Retail"
+import RetailsList from "./RetailList"
 import React from 'react'
-import Brewery from "./Brewery"
+import BreweryList from "./BreweryList"
 import { useState, useEffect } from "react"
 
 function Home(){
@@ -30,8 +30,8 @@ function Home(){
     return(
         <div>
           <h1>Universe Brewery Compilation</h1>
-          <Retails handleNewRetail={handleNewRetail} deleteRetail={deleteRetail} allRetails={allRetails}/>
-          <Brewery allRetails={allRetails}/>
+          <RetailsList handleNewRetail={handleNewRetail} deleteRetail={deleteRetail} allRetails={allRetails}/>
+          <BreweryList allRetails={allRetails}/>
         </div>
     )
 }

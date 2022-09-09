@@ -73,6 +73,14 @@ end
     brewery.to_json
   end
 
+  patch '/retails/:id' do
+    retail = Retail.find(params[:id])
+    retail.update(
+      name: params[:name],  
+    )
+    retail.to_json
+  end
+
   delete '/breweries/:id' do
     breweries = Brewery.find(params[:id])
     breweries.destroy

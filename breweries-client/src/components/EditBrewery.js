@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function EditBrewery({ id, body, onUpdateBrewery }) {
-  const [breweryBody, setBreweryBody] = useState(body);
+function EditBrewery({ id, phone, onUpdateBrewery }) {
+  const [breweryPhone, setBreweryPhone] = useState(phone);
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -12,7 +12,7 @@ function EditBrewery({ id, body, onUpdateBrewery }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        body: breweryBody,
+        phone: breweryPhone,
       }),
     })
       .then((r) => r.json())
@@ -23,10 +23,10 @@ function EditBrewery({ id, body, onUpdateBrewery }) {
     <form className="edit-brewery" onSubmit={handleFormSubmit}>
       <input
         type="text"
-        name="body"
+        name="phone"
         autoComplete="off"
-        value={breweryBody}
-        onChange={(e) => setBreweryBody(e.target.value)}
+        value={breweryPhone}
+        onChange={(e) => setBreweryPhone(e.target.value)}
       />
       <input type="submit" value="Save" />
     </form>

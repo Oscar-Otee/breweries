@@ -3,7 +3,6 @@ import React from 'react'
 
 function CreateBrewery({addBrewery, allRetails}){
 
-    
     function handleSubmit (e){
         e.preventDefault()
         const newBrewery = {
@@ -20,6 +19,7 @@ function CreateBrewery({addBrewery, allRetails}){
             retailName: e.target[10].value
         }
         e.target.reset()
+
     fetch("http://localhost:9292/breweries",{
         method: "POST",
         headers:{
@@ -31,7 +31,6 @@ function CreateBrewery({addBrewery, allRetails}){
     .then(resp => resp.json())
     .then(resp => addBrewery(resp))
     }
-
 
     return(
         <div>

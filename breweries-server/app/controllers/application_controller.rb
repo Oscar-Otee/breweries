@@ -35,6 +35,26 @@ end
  
   end
 
+
+  def include_wholesale(object)
+    object.to_json(
+    include: {
+      wholesale: {
+        only: [
+          :wholesale_name
+        ]
+      }
+    }
+  )
+  end
+  
+  def find_wholesale_id(params)
+    wholesale = Wholesale.find_by(wholesale_name: params[:wholesaleName])
+    retail.id
+  end
+
+
+
   get "/breweries" do
     include_retail(Brewery.all)
   end

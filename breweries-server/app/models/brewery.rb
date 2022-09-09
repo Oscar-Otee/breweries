@@ -1,4 +1,4 @@
 class Brewery < ActiveRecord::Base
-    has_many :wholesales
-    has_many :retails, through: :wholesales
+    belongs_to :retail
+    belongs_to :brewery
 end

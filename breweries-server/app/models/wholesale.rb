@@ -1,4 +1,4 @@
 class Wholesale < ActiveRecord::Base
-    belongs_to :retail
-    belongs_to :brewery
+    has_many :breweries
+    has_many :retails, through: :breweries
 end

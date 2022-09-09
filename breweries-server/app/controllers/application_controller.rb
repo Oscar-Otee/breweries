@@ -35,6 +35,14 @@ end
  
   end
 
+  patch '/retails/:id' do
+    retail = Retail.find(params[:id])
+    retail.update(
+      name: params[:name],  
+    )
+    retail.to_json
+  end
+
   get '/wholesales' do
     wholesales = Wholesale.all
     wholesales.to_json
@@ -51,9 +59,18 @@ end
  
   end
 
+  patch '/wholesales/:id' do
+    wholesale = Wholesale.find(params[:id])
+    wholesale.update(
+      name: params[:name],  
+    )
+    wholesale.to_json
+  end
+
   get "/breweries" do
     include_retail(Brewery.all)
   end
+
 
   post '/breweries' do 
     breweries = Brewery.create(
@@ -72,13 +89,22 @@ end
       include_retail(breweries)
   end
 
-  patch '/retails/:id' do
-    retail = Retail.find(params[:id])
-    retail.update(
-      name: params[:name],  
-    )
-    retail.to_json
+  patch '/breweries/:id' do 
+    brewery = Brewery.find(params[:id])
+    brewery.update(
+      name: params[:name], 
+      brewery_type: params[:brewery_type], 
+      street: params[:street], 
+      city: params[:city], 
+      state: params[:state], 
+      postal_code: params[:postal_code], 
+      country: params[:country], 
+      longitude: params[:longitude], 
+      latitude: params[:latitude], 
+      phone: params[:phone]
+      )
   end
+
 
   delete '/breweries/:id' do
     breweries = Brewery.find(params[:id])

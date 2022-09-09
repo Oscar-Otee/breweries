@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function CreateBrewery({addBrewery, allRetails}, allWholesales){
+function CreateBrewery({addBrewery, allRetails}){
 
     
     function handleSubmit (e){
@@ -17,8 +17,7 @@ function CreateBrewery({addBrewery, allRetails}, allWholesales){
             longitude: e.target[7].value,
             latitude: e.target[8].value,
             phone : e.target[9].value,
-            retailName: e.target[10].value,
-            wholesaleName: e.target[11].value
+            retailName: e.target[10].value
         }
         e.target.reset()
     fetch("http://localhost:9292/breweries",{
@@ -61,11 +60,7 @@ function CreateBrewery({addBrewery, allRetails}, allWholesales){
             <label> Retail Name: </label>
                 <select>
                     {allRetails.map((retail, index) => <option key={index}>{retail.retail_name}</option>)}   
-                </select> 
-            <label> Wholesale Name: </label>
-                <select>
-                    {allWholesales.map((wholesale, index) => <option key={index}>{wholesale.wholesale_name}</option>)}   
-                </select>   
+                </select>    
             <input type='submit'></input>
           </form>
         </div>

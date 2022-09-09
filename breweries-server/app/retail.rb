@@ -1,4 +1,4 @@
 class Retail < ActiveRecord::Base
-    #has_many :breweries, dependent: :destroy
-    has_many :breweries
+    has_many :wholesales
+    has_many :breweries, through: :wholesales
 end

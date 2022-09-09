@@ -29,8 +29,7 @@ function Home(){
 
 
     return(
-        <div style={{background: "pink"}}>
-          <h1>Brewery Industry</h1>
+        <div>
           <RetailsList handleNewRetail={handleNewRetail} deleteRetail={deleteRetail} allRetails={allRetails}/>
           <BreweryList allRetails={allRetails} />
         </div>

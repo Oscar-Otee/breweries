@@ -11,7 +11,7 @@ function RetailsList({ handleNewRetail, deleteRetail, allRetails}){
             <h2>List of Retailers</h2>
             {allRetails.map((retail, index) => 
             <div key={index}>
-                <p>{retail.retail_name}<button onClick={()=>deleteRetail(retail)}>remove</button></p>
+                <p>{retail.retail_name}<button onClick={()=>deleteRetail(retail)}>delete</button></p>
                 
             </div>
             )}

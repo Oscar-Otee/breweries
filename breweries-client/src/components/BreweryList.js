@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from "react"
 import { useEffect } from "react"
 import CreateBrewery from './CreateBrewery.js'
-import EditBrewery from './EditBrewery.js'
 
 function BreweryList({allRetails, allWholesales}){
     
